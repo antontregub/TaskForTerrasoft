@@ -1,0 +1,48 @@
+﻿@using TaskForTerrasoft.Controllers
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    <form asp-action="AddFile" asp-controller="Home" method="post" enctype="multipart/form-data">
+        <label for="file-upload" class="custom-file-upload">
+            Select File
+        </label>
+        <input id="file-upload" type="file" name="uploadedFile" /><br>
+        <input class="button" type="submit" value="Upload" />
+    </form>
+
+<style type="text/css">
+    .button {
+        background-color: #4CAF50; 
+        border: none;
+        color: white;
+        padding: 6px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        background-size: auto 6px;
+        font-weight: 600;
+    }
+    
+    input[type="file"] {
+        display: none;
+    }
+    .custom-file-upload {
+        background-color: #4CAF50; 
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 19px;
+        cursor: pointer;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+    }
+</style>
+
+
+
