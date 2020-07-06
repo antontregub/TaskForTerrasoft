@@ -18,6 +18,11 @@ namespace TaskForTerrasoft.Controllers
             return View();
         }
 
+        public IActionResult AddFile()
+        {
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public IActionResult AddFile(IFormFile uploadedFile)
         {
