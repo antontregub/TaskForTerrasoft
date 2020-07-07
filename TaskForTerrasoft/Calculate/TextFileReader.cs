@@ -23,7 +23,7 @@ namespace TaskForTerrasoft.Calculate
         {
             using (FileStream fs = File.Open(_path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (BufferedStream bs = new BufferedStream(fs))
-            using (StreamReader sr = new StreamReader(bs,Encoding.Default))
+            using (StreamReader sr = new StreamReader(bs,Encoding.UTF8))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)

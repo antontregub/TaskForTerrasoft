@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TaskForTerrasoft.Abstract;
 
 namespace TaskForTerrasoft.Calculate
@@ -6,7 +7,12 @@ namespace TaskForTerrasoft.Calculate
     /// <summary>Definition of language</summary>
     public class Language : MetricsBase
     {
-        private string _language;
+        private Dictionary<string, int> _language = new Dictionary<string, int>
+        {
+            {  "English", 0},
+            {  "Russian", 0},
+            {  "Ukraine", 0},
+        };
 
         public override void Process(string line)
         {
@@ -22,15 +28,16 @@ namespace TaskForTerrasoft.Calculate
 
             }
 
-            if (angl_count > rus_count) _language = "English";
-            if (angl_count < rus_count) _language = "Russian";
-            if (ukr_count > 0) _language = "Ukraine";
+            if (angl_count > rus_count) _language["English"]= _language["English"]+1;
+            if (angl_count < rus_count) _language["Russian"] = _language["Russian"] + 1;
+            if (ukr_count > 0) _language["Ukraine"] = _language["Ukraine"] + 1;
         }
 
         public override Dictionary<string, string> Result()
         {
+            var max = _language.FirstOrDefault(x => x.Value == _language.Values.Max()).Key;
             var _result = new Dictionary<string, string>();
-            _result.Add("Language:", $"{_language}");
+            _result.Add("Language:", $"{max}");
             return _result;
         }
     }

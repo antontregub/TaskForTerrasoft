@@ -32,7 +32,7 @@ namespace TaskForTerrasoft.Controllers
             {
                 var location = Assembly.GetExecutingAssembly().Location;
                 location = location.Substring(0, location.Length - 45);
-                location = location + "/Files/";
+                location = location + "\\Files\\";
 
                 // create directory if not exist
                 if (!Directory.Exists(location))
