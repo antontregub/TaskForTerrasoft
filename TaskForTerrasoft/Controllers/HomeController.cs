@@ -30,17 +30,17 @@ namespace TaskForTerrasoft.Controllers
             var res = new List<Results>();
             if (uploadedFile != null)
             {
-                var a = Assembly.GetExecutingAssembly().Location;
-                a = a.Substring(0, a.Length - 45);
-                a = a + "/Files/";
+                var location = Assembly.GetExecutingAssembly().Location;
+                location = location.Substring(0, location.Length - 45);
+                location = location + "/Files/";
 
                 // create directory if not exist
-                if (!Directory.Exists(a))
+                if (!Directory.Exists(location))
                 {
-                    Directory.CreateDirectory(a);
+                    Directory.CreateDirectory(location);
                 }
 
-                path = a + uploadedFile.FileName;
+                path = location + uploadedFile.FileName;
 
                 // save file
                 using (var fileStream = new FileStream(path, FileMode.Create))

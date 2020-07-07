@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using TaskForTerrasoft.Abstract;
 
 namespace TaskForTerrasoft.Calculate
@@ -22,7 +23,7 @@ namespace TaskForTerrasoft.Calculate
         {
             using (FileStream fs = File.Open(_path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (BufferedStream bs = new BufferedStream(fs))
-            using (StreamReader sr = new StreamReader(bs))
+            using (StreamReader sr = new StreamReader(bs,Encoding.Default))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
