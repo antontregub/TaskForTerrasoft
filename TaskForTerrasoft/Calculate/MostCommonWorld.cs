@@ -42,7 +42,7 @@ namespace TaskForTerrasoft.Calculate
         {
             var item = _world.OrderByDescending(kv => kv.Value).FirstOrDefault();
             var _result = new Dictionary<string, string>();
-            _result.Add($"Most common world '{item.Key}'", $"{item.Value}");
+            _result.Add($"Most common word '{item.Key}'", $"{item.Value}");
             return _result;
         }
     }
